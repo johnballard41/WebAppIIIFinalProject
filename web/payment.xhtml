@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <h:panelGrid columns="1" rendered="#{mp.paymentCurrent}">
+            <h3>Charging this card #{pb.chargeAmountToString()}</h3>
+            <h:form>
+                <h:panelGrid columns="6">
+                    #{msgs.creditCardName}
+                    <h:inputText id="cc-name" 
+                                 maxlength="50" 
+                                 autocomplete="off" 
+                                 value="#{pb.ccName}" 
+                                 />
+
+                    #{msgs.creditCardZip}
+                    <h:inputText id="cc-zip" 
+                                 maxlength="5" 
+                                 autocomplete="off" 
+                                 value="#{pb.ccZip}" 
+                                 />
+
+                    #{msgs.creditCardNumber}
+                    <h:inputText id="cc-number" 
+                                 maxlength="20" 
+                                 autocomplete="off" 
+                                 value="#{pb.ccNumber}" 
+                                 />
+
+                    #{msgs.crditCardCVVInput}
+                    <h:inputText id="cc-ccv" 
+                                 maxlength="4" 
+                                 autocomplete="off" 
+                                 value="#{pb.CVV}"
+                                 />
+
+                    #{msgs.creditCardExpireMonth}
+                    <h:selectOneMenu id="cc-exp-month" value = "#{pb.experationMonth}"> 
+                        <f:selectItem itemValue="01" itemLabel="Jan" /> 
+                        <f:selectItem itemValue="02" itemLabel="Feb" /> 
+                        <f:selectItem itemValue="03" itemLabel="Mar" /> 
+                        <f:selectItem itemValue="04" itemLabel="Apr" /> 
+                        <f:selectItem itemValue="05" itemLabel="May" /> 
+                        <f:selectItem itemValue="06" itemLabel="June" /> 
+                        <f:selectItem itemValue="07" itemLabel="July" /> 
+                        <f:selectItem itemValue="08" itemLabel="Aug" /> 
+                        <f:selectItem itemValue="09" itemLabel="Sep" /> 
+                        <f:selectItem itemValue="10" itemLabel="Oct" /> 
+                        <f:selectItem itemValue="11" itemLabel="Nov" /> 
+                        <f:selectItem itemValue="12" itemLabel="Dec" /> 
+                    </h:selectOneMenu>
+
+                    #{msgs.creditCardExpireYear}
+                    <h:selectOneMenu id="cc-exp-year" value = "#{pb.experationYear}"> 
+                        <f:selectItem itemValue="18" itemLabel="2018" />
+                        <f:selectItem itemValue="19" itemLabel="2019" />
+                        <f:selectItem itemValue="20" itemLabel="2020" />
+                        <f:selectItem itemValue="21" itemLabel="2021" />
+                        <f:selectItem itemValue="22" itemLabel="2022" />
+                        <f:selectItem itemValue="23" itemLabel="2023" />
+                        <f:selectItem itemValue="24" itemLabel="2024" />
+                        <f:selectItem itemValue="25" itemLabel="2025" />
+                    </h:selectOneMenu>
+
+                    <h:commandButton id='process-payment-btn' action="#{pb.processPayment()}" value="Submit Payment"/>
+                    <h:outputText escape="false" value="#{pb.result}" />
+                </h:panelGrid>
+            </h:form>
+        </h:panelGrid>
+    </ui:composition>
+</html>
+

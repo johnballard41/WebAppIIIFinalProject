@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition>
+        <h:panelGrid columns="3" columnClasses="discussionColumn"
+                     rendered="#{mp.courseCurrent}">
+
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel styleClass="label" value="Course ID:"/>
+                    <h:inputText value="#{dbc.crn}"/>
+                </h:panelGrid>   
+
+                <h:panelGrid columns="6">
+                    <h:outputLabel styleClass="label" value="Course Name"/>
+                    <h:inputText 
+                        value="#{dbc.title}"/>
+                    <h:outputLabel styleClass="label" value="Semester" />
+                    <h:inputText 
+                        value="#{dbc.semester}"/>
+                    <h:outputLabel styleClass="label" value="Year" />
+                    <h:inputText value="#{dbc.year}"/> 
+                </h:panelGrid>
+
+                <h:panelGrid columns="6">
+                    <h:commandButton styleClass="button" value="View Supplier" action="#{dbc.viewCourse}"/>
+                    <h:commandButton value="Insert Course" action="#{dbc.insertCourse()}"/>
+                    <h:commandButton value="Update Course" action="#{dbc.updateCourse()}"/>
+                    <h:commandButton value="Delete Course" action="#{dbc.deleteCourse()}"/>
+                    <h:commandButton value="List All Courses" action="#{dbc.listAll}"/>
+                    <h:commandButton value="Clear" action="#{dbc.clear}"/>
+                </h:panelGrid>
+
+                <h:panelGrid>
+                    <h:outputText escape="false" style="color:green" 
+                                  value="#{dbc.result}">
+                    </h:outputText>
+                </h:panelGrid>
+            </h:form>
+        </h:panelGrid>
+    </ui:composition>
+</html>
+

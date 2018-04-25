@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <ui:composition>
+
+        <h:panelGrid columns="3" columnClasses="discussionColumn"
+                     rendered="#{mp.studentCurrent}">
+
+            <h:panelGrid columns="3">
+
+                <h:commandLink tabindex="7" title="#{msgs.toolTipCurrent}"
+                               styleClass="#{mp.newsStyle}"
+                               actionListener="#{mp.curentStudentAction}" 
+                               >
+                    #{msgs.tabTextCurrent}
+                </h:commandLink>
+
+                <h:commandLink tabindex="8" title="#{msgs.toolTipAlumni}"
+                               styleClass="#{mp.newsStyle}"
+                               actionListener="#{mp.alumniStudentAction}">
+                    #{msgs.tabTextAlumni}
+                </h:commandLink>                       
+
+                <h:commandLink tabindex="9" title="#{msgs.tooltipAdmin}"
+                               styleClass="#{mp.adminStyle}"
+                               actionListener="#{mp.courseAction}">
+                    #{msgs.tabTextCourse}
+                </h:commandLink>
+            </h:panelGrid>
+
+        </h:panelGrid>
+
+    </ui:composition>
+
+</html>

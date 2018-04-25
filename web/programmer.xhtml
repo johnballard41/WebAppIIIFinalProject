@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <ui:composition>
+        <h:panelGrid columns="3" columnClasses="discussionColumn"
+                     rendered="#{mp.adminCurrent}">
+
+            <h:panelGrid columns="2">
+                #{msgs.promptUserName}
+                <h:inputText value="#{user.name}"/>
+                #{msgs.promptPassword}
+                <h:inputSecret value="#{user.password}"/>
+                <h:commandButton value="#{msgs.submitPrompt}" actionListener="#{mp.databaseAction}"/>
+            </h:panelGrid>
+                               
+        </h:panelGrid>
+      
+    </ui:composition>
+</html>

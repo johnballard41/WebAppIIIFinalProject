@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title >#{msgs.windowTitle}</title>
+    </h:head>
+
+    <h:body>
+        <div id="wrapper">
+            <header >
+                <h:form>
+
+                    #{msgs.headerTitle} 
+
+                    <h:panelGrid   columns="6"  style="border: 1px; float: right ;vertical-align: top">
+
+                        <h:commandLink title="#{msgs.tooltipFlags}" action="#{localeChanger.changeLocale('en')}"> 
+                            <h:graphicImage library="images" name="dn_flag.gif" style="border: 0px"/>
+                        </h:commandLink> 
+                        <h:commandLink title="#{msgs.tooltipFlags}"  action="#{localeChanger.changeLocale('en')}"> 
+                            <h:graphicImage library="images" name="uk_flag.gif" style="border: 0px"/>
+                        </h:commandLink> 
+
+                        <h:commandLink title="#{msgs.tooltipFlags}" action="#{localeChanger.changeLocale('en')}"> 
+                            <h:graphicImage library="images" name="cn_flag.jpg" style="border: 0px"/>
+                        </h:commandLink> 
+
+                        <p class="separator">|</p>
+
+                        <h:commandLink title="#{msgs.tooltipGreekFlag}" action='#{localeChanger.changeLocale("el")}'> 
+                            <h:graphicImage library="images" name="el_flag.png" style="border: 0px"/>
+                        </h:commandLink> 
+
+                        <h:commandLink title="#{msgs.tooltipUSFlag}" action="#{localeChanger.changeLocale('en')}">      
+                            <h:graphicImage library="images" name="en_flag.gif" 
+                                            style="border: 0px;"
+                                            />
+                        </h:commandLink>
+
+                    </h:panelGrid>
+                </h:form>
+            </header>
+
+            <h:form>
+                <h:panelGrid   styleClass="tabbedPane" columnClasses="displayPanel">
+
+                    <h:panelGrid columns="6" styleClass="tabbedPaneHeader">
+                        <h:commandLink tabindex="1" title="#{msgs.tooltipNews}"
+                                       styleClass="#{mp.newsStyle}"
+                                       actionListener="#{mp.newsAction}" 
+                                       >
+                            #{msgs.tabTextNews}
+                        </h:commandLink>
+
+                        <h:commandLink tabindex="2" title="#{msgs.tooltipAlums}"
+                                       styleClass="#{mp.studentStyle}"
+                                       actionListener="#{mp.studentAction}">
+                            #{msgs.tabTextAlums}
+                        </h:commandLink>                       
+
+                        <h:commandLink tabindex="3" title="#{msgs.tooltipAdmin}"
+                                       styleClass="#{mp.adminStyle}"
+                                       actionListener="#{mp.adminAction}">
+                            #{msgs.tabTextAdmin}
+                        </h:commandLink>
+
+                        <h:commandLink tabindex="4" title="#{msgs.tooltipPromotions}"
+                                       styleClass="#{mp.promotionsStyle}"
+                                       actionListener="#{mp.promotionsAction}">
+                            #{msgs.tabTextPromotions}
+                        </h:commandLink>
+                        <h:commandLink tabindex="5" title="#{msgs.tooltipContact}"
+                                       styleClass="#{mp.contactStyle}"
+                                       actionListener="#{mp.contactAction}">
+                            #{msgs.tabTextContact}
+                        </h:commandLink>
+
+
+                    </h:panelGrid>
+                    <ui:include src="news.xhtml"/>
+                    <ui:include src="students.xhtml"/>
+                    <ui:include src="programmer.xhtml"/>
+                    <ui:include src="promotions.xhtml"/>
+                    <ui:include src="contact.xhtml"/>  
+                    <ui:include src="database.xhtml"/>
+                    <ui:include src="payment.xhtml"/>
+                    <ui:include src="currentStudent.xhtml"/>
+                    <ui:include src="alumni.xhtml"/>
+                    <ui:include src="courses.xhtml"/>
+                </h:panelGrid>
+            </h:form>
+            <footer>
+                #{msgs.copyright}
+                <a  href="mailto:athanasios.markou@solacc.edu ">athanasios.markou@solacc.edu</a>
+            </footer>
+        </div>
+    </h:body>
+</html>

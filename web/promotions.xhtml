@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+        <h:panelGrid columns="1" rendered="#{mp.promotionCurrent}">
+            <h:panelGrid columns="3">
+                <h:commandLink action="#{pb.setChargeAmount(1000)}" actionListener="#{mp.paymentAction}">
+                    <h:graphicImage library="images" name="mug.png" style="height: 100px; width: 100px;"/>
+                    <h:outputText value="Buy a coffee mug!" />
+                </h:commandLink>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+                <h:commandLink action="#{pb.setChargeAmount(2000)}" actionListener="#{mp.paymentAction}">
+                    <h:graphicImage library="images" name="tshirt.jpg" style="height: 100px; width: 100px;" />
+                    <h:outputText value="Buy a Tee Shirt!" />
+                </h:commandLink>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+                <h:commandLink action="#{pb.setChargeAmount(500)}" actionListener="#{mp.paymentAction}">
+                    <h:graphicImage library="images" name="usb.png" style="height: 100px; width: 100px;" />
+                    <h:outputText value="Buy a USB drive!" />
+                </h:commandLink>
+            </h:panelGrid>
+        </h:panelGrid>
+    </ui:composition>
+</html>
